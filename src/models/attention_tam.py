@@ -92,16 +92,6 @@ class LinearTemporalScorer(TemporalScorer):
 
 
 class TemporalAttentionMechanism(nn.Module):
-    """Weighted aggregation over GRU hidden states.
-
-    The accepted paper may describe Spearman-style temporal relevance. Exact
-    Spearman ranking is not ideal as a default training objective here because
-    hard rank/sort operations are non-smooth and target-dependent. The default
-    implementation uses additive trainable attention as a differentiable
-    approximation: it learns which hourly hidden states are most relevant for
-    the day-ahead forecast while keeping the scoring module swappable for future
-    rank-aware or LLM-assisted variants.
-    """
 
     def __init__(
         self,
