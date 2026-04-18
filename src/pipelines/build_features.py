@@ -188,11 +188,6 @@ def _resolve_project_relative_path(config: Mapping[str, Any], value: str | Path)
 
 
 def add_auxiliary_forecast_features_if_needed(config: Mapping[str, Any], frame: Any) -> Any:
-    """Add simple offline proxy renewable forecasts when Tier 2 columns are absent.
-
-    This is intended for dummy-data and smoke-test runs. In a full hierarchical
-    experiment, these columns should be replaced by Tier 1 ANN outputs.
-    """
 
     if not bool(get_config_value(config, "build_features.auto_auxiliary_forecasts", True)):
         return frame
