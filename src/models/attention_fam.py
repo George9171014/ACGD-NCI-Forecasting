@@ -19,15 +19,6 @@ class FeatureAttentionOutput:
 
 
 class FeatureAttentionMechanism(nn.Module):
-    """Learn feature-importance weights for each sample in a temporal window.
-
-    FAM summarizes each feature over the lookback window, scores feature
-    relevance with a small trainable MLP, and applies the resulting gates back
-    to every time step. A softmax over features gives interpretable weights that
-    sum to one per sample; optional internal rescaling preserves the rough
-    magnitude of the original input sequence for the downstream CNN-GRU
-    backbone without changing the returned attention distribution.
-    """
 
     def __init__(
         self,
